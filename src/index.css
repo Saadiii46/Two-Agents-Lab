@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  --color-brand-primary: #8b5cf6;
+  --color-brand-secondary: #c084fc;
+  --color-brand-dark: #000000;
+  --color-brand-card: #0a0a0c;
+  --color-brand-border: #1f1f23;
+}
+
+/* Custom CSS for seamless dark layout and glowing elements */
+body {
+  background-color: #000000;
+  color: #f3f4f6;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Custom glow animations */
+@keyframes pulseGlow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+    filter: blur(40px);
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.85;
+    filter: blur(55px);
+  }
+}
+
+.sphere-glow {
+  animation: pulseGlow 6s infinite ease-in-out;
+}
+
+/* Hide scrollbars for slick interactive dialogs */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

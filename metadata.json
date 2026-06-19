@@ -1,0 +1,6 @@
+{
+  "name": "Two Agents Lab Hero",
+  "description": "An interactive, ultra-polished agency website hero section optimized with ADHD-friendly copy and creative floating positioning.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
