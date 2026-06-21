@@ -7,6 +7,7 @@ import SkillSection from "./components/SkillSection";
 import PortfolioGrid from "./components/PortfolioGrid";
 import AboutAndContact from "./components/AboutAndContact";
 import ConsultationWizard from "./components/ConsultationWizard";
+import AgentChatbot from "./components/AgentChatbot";
 import { AgentNode } from "./types";
 import { ArrowRight, RefreshCw } from "lucide-react";
 import { funFacts } from "./constants";
@@ -256,6 +257,9 @@ export default function App() {
         onClose={() => setWizardOpen(false)}
         isDarkMode={isDarkMode}
       />
+
+      {/** Chatbot floating icon */}
+      <AgentChatbot isDarkMode={isDarkMode}/>
 
     </div>
   );
