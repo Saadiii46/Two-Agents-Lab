@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 import logging
 from pydantic import BaseModel
-from app.langgraph_bot.agent import LangGraphChatManager
+from app.services.langgraph_bot.agent import LangGraphChatManager
 
 logger = logging.getLogger(__name__)
 
