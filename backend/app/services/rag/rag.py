@@ -16,9 +16,62 @@ QDRANT_API_KEY = os.getenv("QDRANT_API_KEY", "")
 COHERE_API_KEY = os.getenv("COHERE_API_KEY", "")
 
 docs = [
-Document(page_content="The automobile requires a massive financial investment.", metadata={"topic": "cars"}),
-Document(page_content="A tiny feline was slumbering peacefully on the rug.", metadata={"topic": "animals"}),
-Document(page_content="Heavy precipitation is expected to flood the city streets tomorrow.", metadata={"topic": "weather"}),
+    Document(
+        page_content="""
+        AI Nexus Agency is a full-service artificial intelligence consulting firm that helps businesses
+        automate workflows, build custom AI applications, and integrate large language models into
+        existing products. We specialize in AI strategy, implementation, and ongoing optimization.
+        """,
+        metadata={"topic": "about-us"}
+    ),
+
+    Document(
+        page_content="""
+        Our services include AI chatbot development, custom GPT solutions, workflow automation,
+        AI-powered knowledge bases, retrieval-augmented generation (RAG) systems, computer vision,
+        and predictive analytics. We work with startups, e-commerce brands, SaaS companies,
+        healthcare providers, and enterprise organizations.
+        """,
+        metadata={"topic": "services"}
+    ),
+
+    Document(
+        page_content="""
+        We have successfully delivered over 150 AI projects worldwide, reducing operational costs
+        by up to 40% and improving customer response times by 85%. Our team consists of AI engineers,
+        machine learning specialists, prompt engineers, and product consultants dedicated to creating
+        scalable intelligent systems.
+        """,
+        metadata={"topic": "case-studies"}
+    ),
+
+    Document(
+        page_content="""
+        AI Nexus Agency offers flexible engagement models including one-time development projects,
+        monthly retainers, dedicated AI teams, and technical advisory services. We provide free
+        discovery calls to understand business goals and recommend the best AI solutions.
+        """,
+        metadata={"topic": "pricing"}
+    ),
+
+    Document(
+        page_content="""
+        Clients choose AI Nexus Agency because of our transparent communication, rapid development
+        cycles, and focus on measurable business outcomes. Testimonials highlight increased lead
+        generation, automated customer support, and streamlined internal operations after partnering
+        with our team.
+        """,
+        metadata={"topic": "testimonials"}
+    ),
+
+    Document(
+        page_content="""
+        Contact our team to schedule an AI strategy session. Whether you need a custom chatbot,
+        an AI-powered SaaS feature, document intelligence, or process automation, we can help you
+        design, build, and deploy production-ready solutions tailored to your business needs.
+        """,
+        metadata={"topic": "contact"}
+    ),
 ]
 
 class RAGClient:
@@ -58,7 +111,7 @@ class RAGClient:
             logger.error(f"Failed to save document in Qdrant collection: {e}")
     
         
-    def search(self, user_query: str):
+    def search(self, user_query: str) -> list[Document]:
         try:
             print(f"User Query: {user_query}")
             
@@ -72,15 +125,3 @@ class RAGClient:
         except Exception as e:
             logger.error(f"Failed to search: {e}")
             return []
-           
-            
-if __name__ == "__main__":
-    qdrant = RAGClient()
-    
-    # qdrant.add_document(docs)
-    
-    results = qdrant.search("Is it going to rain heavily?")
-    
-    for doc in results:
-        print(doc.page_content)
-        print(doc.metadata)
