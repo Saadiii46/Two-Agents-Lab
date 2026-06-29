@@ -100,7 +100,6 @@ class LangGraphChatManager:
             graph.add_edge(START, "chat")
             graph.add_conditional_edges("chat", should_continue)
             graph.add_edge("tool", "chat")
-            graph.add_edge("chat", END)
             
             app = graph.compile()
             
@@ -112,3 +111,4 @@ class LangGraphChatManager:
         
         except Exception as e:
             logger.error("Failed to chat with Groq: %s", e)
+            return "Sorry, something went wrong. Please try again."

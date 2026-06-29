@@ -46,12 +46,15 @@ export default function AgentChatbot({ isDarkMode }: AgentChatbotProps) {
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
-        if (parsed && parsed.length > 0) {
-          setMessages(parsed);
+        // Filter out any old messages with empty text
+        const valid = parsed.filter((m: Message) => m.text && m.text.trim() !== "");
+        if (valid && valid.length > 0) {
+          setMessages(valid);
           return;
         }
       } catch (e) {
         console.error("Error loading chat history", e);
+        localStorage.removeItem("tw_agents_chat_history");
       }
     }
 
