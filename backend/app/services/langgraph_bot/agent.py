@@ -50,7 +50,7 @@ class State(TypedDict):
 class LangGraphChatManager:
     """Owns the LLM and chat system"""
     
-    def __init__(self, model: str = "llama-3.1-8b-instant", temperature: float = 0.7, max_tokens: int = 80, system_message: str = SYSTEM_MESSAGE):
+    def __init__(self, model: str = "llama-3.1-8b-instant", temperature: float = 0.35, max_tokens: int = 900, system_message: str = SYSTEM_MESSAGE):
         self.model = model
         self.temperature = temperature
         self.max_tokens = max_tokens
